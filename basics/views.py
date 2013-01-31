@@ -23,3 +23,15 @@ class HttpVerbsHandler(BaseHandler):
     def delete(self):
         self.response.content_type = 'text/plain'
         self.response.out.write(self.request)
+
+    def options(self):
+        self.response.content_type = 'text/plain'
+        self.response.out.write(self.request)
+
+    def head(self):
+        self.response.content_type = 'text/plain'
+        self.response.out.write(self.request)
+
+    def trace(self):
+        self.response.content_type = 'text/plain'
+        self.response.out.write(self.request)
