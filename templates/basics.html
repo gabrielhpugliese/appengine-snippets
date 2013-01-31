@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2>Simple GET request:</h2>
+    <a href="{{ uri_for('http_verbs_get') }}">
+        <button>Preview</button>
+    </a>
+{% endblock %}

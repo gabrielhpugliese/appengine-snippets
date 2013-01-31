@@ -1,0 +1,23 @@
+application: gae-snippets
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:                                                                      
+- name: jinja2                                                                  
+  version: latest                                                               
+- name: markupsafe                                                              
+  version: latest  
+
+handlers:
+- url: /.*
+  script: main.app
+
+skip_files:
+- \.git
+- \.gitignore
+- .*\.pyc
+- console.py
+- .pydevproject
+- .pyproject
