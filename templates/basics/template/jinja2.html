@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2>I'm using Jinja2 "extends" to import a base html template to create
+        this one.</h2>
+    <h2>Example of filters:</h2>
+    <p>2*2 = {{ 2|pow2 }}</p>
+    <p>100.1*100.1 = {{ 100.1|pow2 }}</p>
+    <h2>Example of global functions:</h2>
+    <p>{{ lower('I WILL WRITE THIS ALL IN LOWERCASE.') }}</p>    <p>{{ upper('i will write this all in uppercase.') }}</p>
+{% endblock %}

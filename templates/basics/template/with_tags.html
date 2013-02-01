@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+    <head>
+        <title>{{ templates_rock }}</title>
+    </head>
+    <body>
+        This is a simple template using tags.<br/>
+        Check the title of this page. Changed dynamically!<br/>
+        I will iterate a list:<br/>
+        <ul>
+            {% for number in a_list %}
+            <li>{{ number }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
