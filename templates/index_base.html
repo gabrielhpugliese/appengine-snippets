@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header_title_lead %}
+<header class="navbar" id="overview">
+    <h1>{% block header_title %}Title{% endblock %}</h1>
+    <p class="lead">
+        {% block lead_content %}{% endblock %}
+    </p>
+    {% block subnavbar %}{% endblock %}
+</header>
+{% endblock %}
+
+{% block content %}
+    <h2>Simple GET request:</h2>
+    <a href="{{ uri_for('http_methods_get') }}">
+        <button>Preview</button>
+    </a>
+{% endblock %}
+
+{% block footer %}{% endblock %}

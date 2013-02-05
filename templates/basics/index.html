@@ -1,8 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'index_base.html' %}
 
-{% block body %}
-    <h2>Simple GET request:</h2>
+
+{% block header_title %}{% trans %}Basics{% endtrans %}{% endblock %}
+
+{% block lead_content %}
+{% trans %}This section will show basic concepts of libraries that App Engine uses
+like webapp2 and jinja2 and their capabilities.{% endtrans %}
+{% endblock %}
+
+
+{% block content %}
+    <h3>Simple GET request:</h3>
     <a href="{{ uri_for('http_methods_get') }}">
-        <button>Preview</button>
+        <button class="btn btn-primary btn-small">Preview</button>
     </a>
 {% endblock %}
