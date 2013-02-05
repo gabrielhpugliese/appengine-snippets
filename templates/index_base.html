@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+{% extends base_layout %}
 
 {% block header_title_lead %}
 <header class="navbar" id="overview">
-    <h1>{% block header_title %}Title{% endblock %}</h1>
+    <h1>{% block header_title %}{% endblock %}</h1>
     <p class="lead">
         {% block lead_content %}{% endblock %}
     </p>
@@ -11,10 +11,23 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Simple GET request:</h2>
-    <a href="{{ uri_for('http_methods_get') }}">
-        <button>Preview</button>
-    </a>
+<div class="row">
+    <div class="span3">
+        <div class="well" style="width: 100%; padding: 8px 0;">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="{{ uri_for('basics_index') }}">Basics</a>
+                </li>
+                <li>
+                    <a href="{{ uri_for('template_index') }}">Templates</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="span9">
+    {% block content_right %}{% endblock %}
+    </div>
+</div>
 {% endblock %}
 
 {% block footer %}{% endblock %}

@@ -9,9 +9,23 @@ like webapp2 and jinja2 and their capabilities.{% endtrans %}
 {% endblock %}
 
 
-{% block content %}
-    <h3>Simple GET request:</h3>
-    <a href="{{ uri_for('http_methods_get') }}">
-        <button class="btn btn-primary btn-small">Preview</button>
-    </a>
+{% block content_right %}
+    <div class="accordion" id="accordion2">
+
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse"
+                data-parent="#accordion2" href="#http-methods-collapse">
+                {% trans %}GET/POST requests{% endtrans %}
+                </a>
+            </div>
+            <div id="http-methods-collapse" class="collapse">
+            {% include 'basics/pygments/http_methods.html' %}
+                <a href="{{ uri_for('http_methods_get') }}" target="_blank">
+                    <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
 {% endblock %}
