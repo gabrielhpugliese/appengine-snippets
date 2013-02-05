@@ -1,5 +1,33 @@
 {% extends base_layout %}
 
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-chevron-down icon"></span>
+        </button>
+        <a class="brand" href="/">{{ app_name }}</a>
+        <div class="nav-collapse">
+            <ul class="nav pull-right">
+                <li><a href="https://github.com/gabrielhpugliese/appengine-snippets" target="_blank"><span class="icon-inbox" ></span> {% trans %}Source Code{% endtrans %}</a></li>
+                {% if locale_iso %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        {% trans %}Language{% endtrans %} : {{ locale_language }} <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% for l in locales %}
+                        {% if str(locale_iso) != l %}<li><a href="{{ path_for_language }}&hl={{ l }}">{{ locales[l] }}</a></li>{% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endif %}
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div><!-- /navbar-inner -->
+</div><!-- /navbar -->
+{% endblock %}
+
 {% block header_title_lead %}
 <header class="navbar" id="overview">
     <h1>{% block header_title %}{% endblock %}</h1>
