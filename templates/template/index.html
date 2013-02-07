@@ -1,11 +1,10 @@
 {% extends 'index_base.html' %}
 
 
-{% block header_title %}{% trans %}Basics{% endtrans %}{% endblock %}
+{% block header_title %}{% trans %}Templates{% endtrans %}{% endblock %}
 
 {% block lead_content %}
-{% trans %}This section will show basic concepts of libraries that App Engine uses
-like webapp2 and jinja2 and their capabilities.{% endtrans %}
+{% trans %}How to work with html templates and template tags.{% endtrans %}
 {% endblock %}
 
 
@@ -20,10 +19,12 @@ like webapp2 and jinja2 and their capabilities.{% endtrans %}
                 </a>
             </div>
             <div id="template-collapse" class="collapse">
-            {% include 'template/pygments/simple.html' %}
-                <a href="{{ uri_for('template_simple') }}" target="_blank">
-                    <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
-                </a>
+                <div class="accordion-inner">
+                {% include 'template/pygments/simple.html' %}
+                    <a href="{{ uri_for('template_simple') }}" target="_blank">
+                        <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -35,10 +36,12 @@ like webapp2 and jinja2 and their capabilities.{% endtrans %}
                 </a>
             </div>
             <div id="tags-template-collapse" class="collapse">
-            {% include 'template/pygments/tags.html' %}
-                <a href="{{ uri_for('template_with_tags') }}" target="_blank">
-                    <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
-                </a>
+                <div class="accordion-inner">
+                {% include 'template/pygments/tags.html' %}
+                    <a href="{{ uri_for('template_with_tags') }}" target="_blank">
+                        <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
+                    </a>
+                </div>
             </div>
         </div>
 

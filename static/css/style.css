@@ -1,3 +1,7 @@
+body {
+    background: white !important;
+}
+
 dl {
   margin-bottom: 10px;
 }

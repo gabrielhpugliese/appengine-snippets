@@ -4,8 +4,8 @@
 {% block header_title %}{% trans %}Basics{% endtrans %}{% endblock %}
 
 {% block lead_content %}
-{% trans %}This section will show basic concepts of libraries that App Engine uses
-like webapp2 and jinja2 and their capabilities.{% endtrans %}
+{% trans %}Basic concepts of webapp2 Handlers (a.k.a. Views) and their main
+objects.{% endtrans %}
 {% endblock %}
 
 
@@ -20,10 +20,30 @@ like webapp2 and jinja2 and their capabilities.{% endtrans %}
                 </a>
             </div>
             <div id="http-methods-collapse" class="collapse">
-            {% include 'basics/pygments/http_methods.html' %}
-                <a href="{{ uri_for('http_methods_get') }}" target="_blank">
-                    <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
+                <div class="accordion-inner">
+                {% include 'basics/pygments/http_methods.html' %}
+                    <a href="{{ uri_for('http_methods_get') }}" target="_blank">
+                        <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse"
+                data-parent="#accordion2" href="#request-collapse">
+                {% trans %}Request object - Parsing GET params{% endtrans %}
                 </a>
+            </div>
+            <div id="request-collapse" class="collapse">
+                <div class="accordion-inner">
+                {% include 'basics/pygments/request.html' %}
+                    <a href="{{ uri_for('request') }}?param1=1234&anotherparam=4343"
+                    target="_blank">
+                        <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
+                    </a>
+                </div>
             </div>
         </div>
 
