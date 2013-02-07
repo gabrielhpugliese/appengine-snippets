@@ -3,8 +3,7 @@ import webapp2
 
 class RequestObjectHandler(webapp2.RequestHandler):
     """
-    This shows how to receive GET or POST requests. You can create other
-    HTTP methods this way, such DELETE, HEAD, PUT etc
+    This shows how to parse GET params with self.request object
     """
 
     def get(self):
