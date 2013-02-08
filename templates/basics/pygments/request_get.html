@@ -80,14 +80,13 @@ body .il { color: #666666 } /* Literal.Number.Integer.Long */
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">webapp2</span>
 
 
-<span class="k">class</span> <span class="nc">RequestObjectHandler</span><span class="p">(</span><span class="n">webapp2</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">RequestGETObjectHandler</span><span class="p">(</span><span class="n">webapp2</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This shows how to parse GET params, user_agent and referrer with</span>
 <span class="sd">    self.request object</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">params_html</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
         <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">arguments</span><span class="p">()</span>
         <span class="n">user_agent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user_agent</span>
         <span class="n">referrer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">referrer</span>
@@ -97,18 +96,17 @@ body .il { color: #666666 } /* Literal.Number.Integer.Long */
 <span class="s">        &lt;b&gt;This is your user agent:&lt;/b&gt;&lt;br/&gt; {}&lt;br/&gt;&lt;br/&gt;</span>
 <span class="s">        &lt;b&gt;This is the referrer:&lt;/b&gt;&lt;br/&gt; {}&lt;br/&gt;&lt;br/&gt;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user_agent</span><span class="p">,</span>
                                                                  <span class="n">referrer</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">params</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">params</span><span class="p">:</span>
+            <span class="n">params_html</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
 
-        <span class="n">html</span> <span class="o">=</span> <span class="s">&#39;{}{}&lt;br/&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">html</span><span class="p">,</span> <span class="s">&#39;&lt;b&gt;And you passed all these parameters:&lt;/b&gt;&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">param_key</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+                <span class="n">param_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">param_key</span><span class="p">)</span>
+                <span class="n">params_html</span> <span class="o">=</span> <span class="s">&#39;{}&lt;i&gt;{}&lt;/i&gt;: {}&lt;br/&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">params_html</span><span class="p">,</span>
+                                                            <span class="n">param_key</span><span class="p">,</span>
+                                                            <span class="n">param_value</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">param_key</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-            <span class="n">param_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">param_key</span><span class="p">)</span>
-            <span class="n">params_html</span> <span class="o">=</span> <span class="s">&#39;{}&lt;i&gt;{}&lt;/i&gt;: {}&lt;br/&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">params_html</span><span class="p">,</span> <span class="n">param_key</span><span class="p">,</span>
-                                                        <span class="n">param_value</span><span class="p">)</span>
-
-        <span class="n">html</span> <span class="o">=</span> <span class="s">&#39;{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">params_html</span><span class="p">)</span>
+            <span class="n">html</span> <span class="o">=</span> <span class="s">&#39;{}&lt;b&gt;And you passed all these parameters:&lt;br/&gt;&lt;/b&gt;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">html</span><span class="p">,</span> <span class="n">params_html</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 </pre></div>

@@ -2,7 +2,8 @@ from webapp2_extras.routes import RedirectRoute, PathPrefixRoute
 
 from views import Index
 from http_methods import HttpMethodsHandler
-from request import RequestObjectHandler
+from request_get import RequestGETObjectHandler
+from request_post import RequestPOSTObjectHandler
 
 
 routes = [
@@ -14,8 +15,11 @@ routes = [
         RedirectRoute('/http_methods/post', HttpMethodsHandler,
                       name='http_methods_post', methods=['POST'],
                       strict_slash=True),
-        RedirectRoute('/request', RequestObjectHandler,
-                      name='request', methods=['GET'],
+        RedirectRoute('/request/get', RequestGETObjectHandler,
+                      name='request_get', methods=['GET'],
+                      strict_slash=True),
+        RedirectRoute('/request/post', RequestPOSTObjectHandler,
+                      name='request_post', methods=['POST'],
                       strict_slash=True),
     ])
 ]

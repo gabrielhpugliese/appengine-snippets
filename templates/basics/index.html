@@ -23,8 +23,12 @@ Basic concepts of webapp2 Handlers (a.k.a. Views) and their main objects.
             </div>
             <div id="http-methods-collapse" class="collapse">
                 <div class="accordion-inner">
-                    <p>{% trans %}Just how to start a view/handler with GET or POST
-                    request handler{% endtrans %}</p>
+                    <p>
+                        {% trans %}
+                        Just how to start a view/handler with GET or POST
+                        request handler
+                        {% endtrans %}
+                    </p>
                     {% include 'basics/pygments/http_methods.html' %}
                     {{ preview(uri_for('http_methods_get')) }}
                     <a target="_blank"
@@ -40,21 +44,73 @@ Basic concepts of webapp2 Handlers (a.k.a. Views) and their main objects.
         <div class="accordion-group">
             <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse"
-                data-parent="#accordion2" href="#request-collapse">
+                data-parent="#accordion2" href="#request-get-collapse">
                 {% trans %}Request object - Parsing GET params, user agent and
                 more{% endtrans %}
                 </a>
             </div>
-            <div id="request-collapse" class="collapse">
+            <div id="request-get-collapse" class="collapse">
                 <div class="accordion-inner">
-                    <p>{% trans %}A simple example how to retrieve get
-                        parameters, user agent and referrer.{% endtrans %}</p>
-                    {% include 'basics/pygments/request.html' %}
-                    {{ preview(uri_for('request'), "param1=1234&anotherparam=4343") }}
+                    <p>
+                        {% trans %}
+                        A simple example how to retrieve get parameters, user
+                        agent and referrer.
+                        {% endtrans %}
+                    </p>
+                    {% include 'basics/pygments/request_get.html' %}
+                    {{ preview(uri_for('request_get'), "param1=1234&anotherparam=4343") }}
                     {{ docs("http://webapp-improved.appspot.com/guide/request.html") }}
                 </div>
             </div>
         </div>
 
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse"
+                data-parent="#accordion2" href="#request-post-collapse">
+                {% trans %}
+                Request object - Parsing POST params and body
+                {% endtrans %}
+                </a>
+            </div>
+            <div id="request-post-collapse" class="collapse">
+                <div class="accordion-inner">
+                    <p>
+                        {% trans %}
+                        Same way to get POST params and body.
+                        {% endtrans %}
+                    </p>
+                    {% include 'basics/pygments/request_get.html' %}
+                    <a id="post-preview" class="btn btn-success"
+                    data-toggle="modal" href="#post-modal">
+                        Preview
+                    </a>
+                    {{ docs("http://webapp-improved.appspot.com/guide/request.html") }}
+                </div>
+            </div>
+
+            <div id="post-modal" class="modal hide fade">
+                <div class="modal-body">
+                </div>
+            </div>
+
+        </div>
+
     </div>
+{% endblock %}
+
+{% block mediaJS %}
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#post-preview').click(function(){
+            jQuery.post("{{ uri_for('request_post') }}",
+                {param1: 123, testparam2: 777},
+                function(data){
+                    jQuery('#post-modal .modal-body').html('');
+                    jQuery('#post-modal .modal-body').append(data);
+                }
+            );
+        });
+    });
+</script>
 {% endblock %}
