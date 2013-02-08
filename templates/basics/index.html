@@ -17,6 +17,44 @@ Basic concepts of webapp2 Handlers (a.k.a. Views) and their main objects.
         <div class="accordion-group">
             <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse"
+                data-parent="#accordion2" href="#yaml-collapse">
+                {% trans %}Creating a yaml file{% endtrans %}
+                </a>
+            </div>
+            <div id="yaml-collapse" class="collapse">
+                <div class="accordion-inner">
+                    <p>
+                        {% trans %}
+                        Before creating your app, you must configure a file
+                        called app.yaml. App Engine depends on it to run and it
+                        must be located in the root path of your project.
+                        {% endtrans %}
+                    </p>
+                    <p>
+                        {% trans %}
+                        There you must define some routes, python version, app
+                        version, libraries you eventually use and error handlers.
+                        {% endtrans %}
+                    </p>
+                    <p>
+                        Routes must point to an WSGI Application. Check the
+                        main.py to see how to configure it.
+                    </p>
+                    {% include 'basics/pygments/yaml.html' %}
+                    {% include 'basics/pygments/main.html' %}
+                    <a target="_blank"
+                    href="https://developers.google.com/appengine/docs/python/config/appconfig">
+                        <button class="btn btn-info">
+                            {% trans %}Docs{% endtrans %}
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse"
                 data-parent="#accordion2" href="#http-methods-collapse">
                 {% trans %}GET/POST requests{% endtrans %}
                 </a>
