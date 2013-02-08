@@ -4,8 +4,10 @@
 {% block header_title %}{% trans %}Basics{% endtrans %}{% endblock %}
 
 {% block lead_content %}
-{% trans %}Basic concepts of webapp2 Handlers (a.k.a. Views) and their main
-objects.{% endtrans %}
+{% trans %}
+Here is the section that every skilled programmer knows by heart:
+Basic concepts of webapp2 Handlers (a.k.a. Views) and their main objects.
+{% endtrans %}
 {% endblock %}
 
 
@@ -21,9 +23,15 @@ objects.{% endtrans %}
             </div>
             <div id="http-methods-collapse" class="collapse">
                 <div class="accordion-inner">
-                {% include 'basics/pygments/http_methods.html' %}
-                    <a href="{{ uri_for('http_methods_get') }}" target="_blank">
-                        <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
+                    <p>{% trans %}Just how to start a view/handler with GET or POST
+                    request handler{% endtrans %}</p>
+                    {% include 'basics/pygments/http_methods.html' %}
+                    {{ preview(uri_for('http_methods_get')) }}
+                    <a target="_blank"
+                    href="https://developers.google.com/appengine/docs/python/gettingstartedpython27/helloworld">
+                        <button class="btn btn-info">
+                            {% trans %}Docs{% endtrans %}
+                        </button>
                     </a>
                 </div>
             </div>
@@ -33,16 +41,17 @@ objects.{% endtrans %}
             <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse"
                 data-parent="#accordion2" href="#request-collapse">
-                {% trans %}Request object - Parsing GET params{% endtrans %}
+                {% trans %}Request object - Parsing GET params, user agent and
+                more{% endtrans %}
                 </a>
             </div>
             <div id="request-collapse" class="collapse">
                 <div class="accordion-inner">
-                {% include 'basics/pygments/request.html' %}
-                    <a href="{{ uri_for('request') }}?param1=1234&anotherparam=4343"
-                    target="_blank">
-                        <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
-                    </a>
+                    <p>{% trans %}A simple example how to retrieve get
+                        parameters, user agent and referrer.{% endtrans %}</p>
+                    {% include 'basics/pygments/request.html' %}
+                    {{ preview(uri_for('request'), "param1=1234&anotherparam=4343") }}
+                    {{ docs("http://webapp-improved.appspot.com/guide/request.html") }}
                 </div>
             </div>
         </div>

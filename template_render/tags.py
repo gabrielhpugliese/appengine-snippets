@@ -6,7 +6,6 @@ from google.appengine.ext.webapp import template
 from settings import PROJECT_ROOT_PATH
 # PROJECT_ROOT_PATH is an automatic way to get the root path of the
 # project. Check the code in settings.py in the project root.
-# You can define a static path like /home/appengine/templates
 TEMPLATES_ROOT_PATH = os.path.join(PROJECT_ROOT_PATH, 'templates')
 
 
@@ -14,9 +13,6 @@ class TemplateWithTagsHandler(webapp2.RequestHandler):
     """
     Same as the simple template example, except we are passing variables to
     template that we call template context.
-
-    Source:
-    - http://webapp-improved.appspot.com/tutorials/gettingstarted/templates.html
     """
 
     def get(self):

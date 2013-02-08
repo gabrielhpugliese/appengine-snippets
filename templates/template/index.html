@@ -4,7 +4,9 @@
 {% block header_title %}{% trans %}Templates{% endtrans %}{% endblock %}
 
 {% block lead_content %}
-{% trans %}How to work with html templates and template tags.{% endtrans %}
+{% trans %}Templates are just HTML files but with some bonus: you have some
+functions called tags that can help you rendering something that python
+evaluates.{% endtrans %}
 {% endblock %}
 
 
@@ -20,10 +22,14 @@
             </div>
             <div id="template-collapse" class="collapse">
                 <div class="accordion-inner">
-                {% include 'template/pygments/simple.html' %}
-                    <a href="{{ uri_for('template_simple') }}" target="_blank">
-                        <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
-                    </a>
+                    <p>
+                        {% trans %}
+                        Simple way to render templates without tags
+                        {% endtrans %}
+                    </p>
+                    {% include 'template/pygments/simple.html' %}
+                    {{ preview(uri_for('template_simple')) }}
+                    {{ docs("http://webapp-improved.appspot.com/tutorials/gettingstarted/templates.html") }}
                 </div>
             </div>
         </div>
@@ -32,15 +38,19 @@
             <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse"
                 data-parent="#accordion2" href="#tags-template-collapse">
-                {% trans %}Passing variables to and using tags in templates{% endtrans %}
+                {% trans %}
+                Passing variables to and using tags in templates
+                {% endtrans %}
                 </a>
             </div>
             <div id="tags-template-collapse" class="collapse">
                 <div class="accordion-inner">
-                {% include 'template/pygments/tags.html' %}
-                    <a href="{{ uri_for('template_with_tags') }}" target="_blank">
-                        <button class="btn btn-primary">{% trans %}Preview{% endtrans %}</button>
-                    </a>
+                    <p>
+                        This is the way Google teaches us how to
+                    </p>
+                    {% include 'template/pygments/tags.html' %}
+                    {{ preview(uri_for('template_with_tags')) }}
+                    {{ docs("http://webapp-improved.appspot.com/tutorials/gettingstarted/templates.html") }}
                 </div>
             </div>
         </div>
