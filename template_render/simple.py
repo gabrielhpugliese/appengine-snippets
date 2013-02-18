@@ -1,12 +1,5 @@
-import os
-
 import webapp2
 from google.appengine.ext.webapp import template
-
-from settings import PROJECT_ROOT_PATH
-# PROJECT_ROOT_PATH is an automatic way to get the root path of the
-# project. Check the code in settings.py in the project root.
-TEMPLATES_ROOT_PATH = os.path.join(PROJECT_ROOT_PATH, 'templates')
 
 
 class SimpleTemplateHandler(webapp2.RequestHandler):
@@ -20,8 +13,7 @@ class SimpleTemplateHandler(webapp2.RequestHandler):
         The template path above will be the project template path plus its
         subfolder template_render plus the template file simple.html
         """
-        template_path = os.path.join(TEMPLATES_ROOT_PATH,
-                                     'template_render/simple.html')
+        template_path = 'templates/template_render/simple.html'
         self.response.out.write(template.render(template_path, {}))
 
 

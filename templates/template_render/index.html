@@ -4,9 +4,11 @@
 {% block header_title %}{% trans %}Templates{% endtrans %}{% endblock %}
 
 {% block lead_content %}
-{% trans %}Templates are just HTML files but with some bonus: you have some
+{% trans %}
+Templates are just HTML files but with some bonus: you have some
 functions called tags that can help you rendering something that python
-evaluates.{% endtrans %}
+evaluates.
+{% endtrans %}
 {% endblock %}
 
 
@@ -92,6 +94,17 @@ evaluates.{% endtrans %}
                         In this example, we are extending jinja2 to pass
                         functions to the template either as template tags
                         (globals) or template filters.
+                        {% endtrans %}
+                    </p>
+                    <p>
+                        {% trans %}
+                        Modified main.py with tags, filters and paths:
+                        {% endtrans %}
+                    </p>
+                    {% include 'template_render/pygments/main.html' %}
+                    <p>
+                        {% trans %}
+                        The base handler:
                         {% endtrans %}
                     </p>
                     {% include 'template_render/pygments/jinja2.html' %}

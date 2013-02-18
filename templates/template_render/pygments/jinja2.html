@@ -88,31 +88,13 @@ body .il { color: #666666 } /* Literal.Number.Integer.Long */
 <span class="sd">    it is Python code.</span>
 
 <span class="sd">    Sources:</span>
-<span class="sd">    - http://stackoverflow.com/questions/7081250/webapp2-jinja2-how-can-i-get-uri-for-working-in-jinja2-views</span>
+<span class="sd">    - https://groups.google.com/forum/?fromgroups=#!topic/google-appengine-python/YNCUxuGzmwc</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">_jinja2_factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Jinja2</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-        <span class="n">j</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
-            <span class="c"># Set filters.</span>
-            <span class="s">&#39;pow2&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-        <span class="p">})</span>
-        <span class="n">j</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
-            <span class="c"># Set global variables.</span>
-            <span class="s">&#39;upper&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span>
-            <span class="s">&#39;lower&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="o">.</span><span class="n">lower</span>
-            <span class="c"># ...</span>
-        <span class="p">})</span>
-        <span class="k">return</span> <span class="n">j</span>
-
-    <span class="nd">@webapp2.cached_property</span>
-    <span class="k">def</span> <span class="nf">_jinja2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># Returns a Jinja2 renderer cached in the app registry.</span>
-        <span class="k">return</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">get_jinja2</span><span class="p">(</span><span class="n">factory</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_jinja2_factory</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">render_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">template_context</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c"># Renders a template and writes the result to the response.</span>
-        <span class="n">rv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jinja2</span><span class="o">.</span><span class="n">render_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="o">**</span><span class="n">template_context</span><span class="p">)</span>
+        <span class="n">rv</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">get_jinja2</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="p">)</span><span class="o">.</span><span class="n">render_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span>
+                                                             <span class="o">**</span><span class="n">template_context</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rv</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -120,7 +102,8 @@ body .il { color: #666666 } /* Literal.Number.Integer.Long */
 <span class="sd">        If you make a new View/Handler, inherit it from a Handler like this one,</span>
 <span class="sd">        so you will only need to do this once:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_response</span><span class="p">(</span><span class="s">&#39;template_render/jinja2.html&#39;</span><span class="p">)</span>
+        <span class="n">template_path</span> <span class="o">=</span> <span class="s">&#39;template_render/jinja2.html&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_response</span><span class="p">(</span><span class="n">template_path</span><span class="p">)</span>
 </pre></div>
 </body>
 </html>
