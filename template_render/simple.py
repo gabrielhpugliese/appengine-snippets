@@ -16,8 +16,12 @@ class SimpleTemplateHandler(webapp2.RequestHandler):
     """
 
     def get(self):
+        """
+        The template path above will be the project template path plus its
+        subfolder template_render plus the template file simple.html
+        """
         template_path = os.path.join(TEMPLATES_ROOT_PATH,
-                                     'template/simple.html')
+                                     'template_render/simple.html')
         self.response.out.write(template.render(template_path, {}))
 
 

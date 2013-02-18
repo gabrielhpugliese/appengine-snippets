@@ -17,7 +17,7 @@ class TemplateWithTagsHandler(webapp2.RequestHandler):
 
     def get(self):
         template_path = os.path.join(TEMPLATES_ROOT_PATH,
-                                     'template/tags.html')
+                                     'template_render/tags.html')
         template_context = {'templates_rock': 'Templates rock!',
                             'a_list': [x for x in xrange(5)]}
         self.response.out.write(template.render(template_path,

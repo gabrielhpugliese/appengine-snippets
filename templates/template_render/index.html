@@ -27,13 +27,13 @@ evaluates.{% endtrans %}
                         Simple way to render templates without tags
                         {% endtrans %}
                     </p>
-                    {% include 'template/pygments/simple.html' %}
+                    {% include 'template_render/pygments/simple.html' %}
                     <p>
                         {% trans %}
                         The template:
                         {% endtrans %}
                     </p>
-                    {% include 'template/pygments/simple_template.html' %}
+                    {% include 'template_render/pygments/simple_template.html' %}
                     {{ preview(uri_for('template_simple')) }}
                     {{ docs("http://webapp-improved.appspot.com/tutorials/gettingstarted/templates.html") }}
                 </div>
@@ -56,13 +56,13 @@ evaluates.{% endtrans %}
                         This is the way Google teaches us how to do.
                         {% endtrans %}
                     </p>
-                    {% include 'template/pygments/tags.html' %}
+                    {% include 'template_render/pygments/tags.html' %}
                     <p>
                         {% trans %}
                         The template:
                         {% endtrans %}
                     </p>
-                    {% include 'template/pygments/tags_template.html' %}
+                    {% include 'template_render/pygments/tags_template.html' %}
                     {{ preview(uri_for('template_with_tags')) }}
                     {{ docs("http://webapp-improved.appspot.com/tutorials/gettingstarted/templates.html") }}
                 </div>
@@ -94,13 +94,13 @@ evaluates.{% endtrans %}
                         (globals) or template filters.
                         {% endtrans %}
                     </p>
-                    {% include 'template/pygments/jinja2.html' %}
+                    {% include 'template_render/pygments/jinja2.html' %}
                     <p>
                         {% trans %}
                         The template:
                         {% endtrans %}
                     </p>
-                    {% include 'template/pygments/jinja2_template.html' %}
+                    {% include 'template_render/pygments/jinja2_template.html' %}
                     {{ preview(uri_for('template_jinja2')) }}
                     {{ docs("http://jinja.pocoo.org/docs/api/") }}
                 </div>

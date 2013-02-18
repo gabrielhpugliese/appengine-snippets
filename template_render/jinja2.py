@@ -41,5 +41,5 @@ class Jinja2TemplateHandler(webapp2.RequestHandler):
         If you make a new View/Handler, inherit it from a Handler like this one,
         so you will only need to do this once:
         """
-        return self.render_response('template/jinja2.html')
+        return self.render_response('template_render/jinja2.html')
 
