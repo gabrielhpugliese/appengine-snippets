@@ -16,3 +16,7 @@ dt,dd {
   margin-bottom: 10px;;
 }
 .home_bp{background:transparent url(../img/logo.png) top center no-repeat;padding-top:20em;text-align:center}.home_bp h1{font-size:1.6em}.home_bp p{font-size:1.2em}
+
+pre {
+    font-size: 11px;
+}

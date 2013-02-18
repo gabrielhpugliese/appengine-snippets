@@ -28,6 +28,12 @@ evaluates.{% endtrans %}
                         {% endtrans %}
                     </p>
                     {% include 'template/pygments/simple.html' %}
+                    <p>
+                        {% trans %}
+                        The template:
+                        {% endtrans %}
+                    </p>
+                    {% include 'template/pygments/simple_template.html' %}
                     {{ preview(uri_for('template_simple')) }}
                     {{ docs("http://webapp-improved.appspot.com/tutorials/gettingstarted/templates.html") }}
                 </div>
@@ -46,11 +52,57 @@ evaluates.{% endtrans %}
             <div id="tags-template-collapse" class="collapse">
                 <div class="accordion-inner">
                     <p>
-                        This is the way Google teaches us how to
+                        {% trans %}
+                        This is the way Google teaches us how to do.
+                        {% endtrans %}
                     </p>
                     {% include 'template/pygments/tags.html' %}
+                    <p>
+                        {% trans %}
+                        The template:
+                        {% endtrans %}
+                    </p>
+                    {% include 'template/pygments/tags_template.html' %}
                     {{ preview(uri_for('template_with_tags')) }}
                     {{ docs("http://webapp-improved.appspot.com/tutorials/gettingstarted/templates.html") }}
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse"
+                data-parent="#accordion2" href="#jinja2-collapse">
+                {% trans %}
+                Using jinja2 as template render
+                {% endtrans %}
+                </a>
+            </div>
+            <div id="jinja2-collapse" class="collapse">
+                <div class="accordion-inner">
+                    <p>
+                        {% trans %}
+                        Jinja2 provides better handle of templates and it's
+                        even possible to call Python functions (either built-in
+                        or not) as template tags.
+                        {% endtrans %}
+                    </p>
+                    <p>
+                        {% trans %}
+                        In this example, we are extending jinja2 to pass
+                        functions to the template either as template tags
+                        (globals) or template filters.
+                        {% endtrans %}
+                    </p>
+                    {% include 'template/pygments/jinja2.html' %}
+                    <p>
+                        {% trans %}
+                        The template:
+                        {% endtrans %}
+                    </p>
+                    {% include 'template/pygments/jinja2_template.html' %}
+                    {{ preview(uri_for('template_jinja2')) }}
+                    {{ docs("http://jinja.pocoo.org/docs/api/") }}
                 </div>
             </div>
         </div>

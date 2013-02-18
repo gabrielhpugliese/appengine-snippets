@@ -81,8 +81,8 @@ config = {
 # stacktrace error page or browser error page
 'error_templates': {
     403: 'errors/default_error.html',
-    404: 'errors/default_error.html',
-    500: 'errors/default_error.html',
+#    404: 'errors/default_error.html',
+#    500: 'errors/default_error.html',
 },
 
 # Enable Federated login (OpenID and OAuth)

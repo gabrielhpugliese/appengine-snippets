@@ -18,7 +18,7 @@ Basic concepts of webapp2 Handlers (a.k.a. Views) and their main objects.
             <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse"
                 data-parent="#accordion2" href="#yaml-collapse">
-                {% trans %}Creating a yaml file{% endtrans %}
+                {% trans %}Creating a yaml file and main file{% endtrans %}
                 </a>
             </div>
             <div id="yaml-collapse" class="collapse">
@@ -37,13 +37,49 @@ Basic concepts of webapp2 Handlers (a.k.a. Views) and their main objects.
                         {% endtrans %}
                     </p>
                     <p>
+                        {% trans %}
                         Routes must point to an WSGI Application. Check the
                         main.py to see how to configure it.
+                        {% endtrans %}
                     </p>
                     {% include 'basics/pygments/yaml.html' %}
                     {% include 'basics/pygments/main.html' %}
                     <a target="_blank"
                     href="https://developers.google.com/appengine/docs/python/config/appconfig">
+                        <button class="btn btn-info">
+                            {% trans %}Docs{% endtrans %}
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse"
+                data-parent="#accordion2" href="#routing-collapse">
+                {% trans %}URL routing{% endtrans %}
+                </a>
+            </div>
+            <div id="routing-collapse" class="collapse">
+                <div class="accordion-inner">
+                    <p>
+                        {% trans %}
+                        Pass the routes variable to the WSGIApplication as
+                        first param as seen before in main.py.
+                        {% endtrans %}
+                    </p>
+                    <p>
+                        {% trans %}
+                        This is an example of URL routing for gae-snippets.
+                        It must be compatible with the app.yaml file.
+                        You can use route names inside your templates using
+                        template tags as shown in next session.
+                        {% endtrans %}
+                    </p>
+                    {% include 'basics/pygments/routing.html' %}
+                    <a target="_blank"
+                    href="http://webapp-improved.appspot.com/guide/routing.html#guide-routing">
                         <button class="btn btn-info">
                             {% trans %}Docs{% endtrans %}
                         </button>
