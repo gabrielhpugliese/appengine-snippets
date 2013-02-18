@@ -96,7 +96,7 @@ body .il { color: #666666 } /* Literal.Number.Integer.Long */
 
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">template_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TEMPLATES_ROOT_PATH</span><span class="p">,</span>
-                                     <span class="s">&#39;template/tags.html&#39;</span><span class="p">)</span>
+                                     <span class="s">&#39;template_render/tags.html&#39;</span><span class="p">)</span>
         <span class="n">template_context</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;templates_rock&#39;</span><span class="p">:</span> <span class="s">&#39;Templates rock!&#39;</span><span class="p">,</span>
                             <span class="s">&#39;a_list&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">5</span><span class="p">)]}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">template_path</span><span class="p">,</span>

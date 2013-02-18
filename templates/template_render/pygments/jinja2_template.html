@@ -77,16 +77,19 @@ body .il { color: #666666 } /* Literal.Number.Integer.Long */
 <body>
 <h2></h2>
 
-<div class="highlight"><pre>&#123;% block body %&#125;
-    <span class="nt">&lt;h2&gt;</span>I&#39;m using Jinja2 &quot;extends&quot; to import a base html template to create
-        this one.<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;h2&gt;</span>Example of filters:<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;p&gt;</span>2*2 = &#123;&#123; 2|pow2 &#125;&#125;<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;p&gt;</span>100.1*100.1 = &#123;&#123; 100.1|pow2 &#125;&#125;<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;h2&gt;</span>Example of global functions:<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;p&gt;</span>&#123;&#123; lower(&#39;I WILL WRITE THIS ALL IN LOWERCASE.&#39;) &#125;&#125;<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;p&gt;</span>&#123;&#123; upper(&#39;i will write this all in uppercase.&#39;) &#125;&#125;<span class="nt">&lt;/p&gt;</span>
-&#123;% endblock %&#125;
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>Example of filters:<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;p&gt;</span>2*2 = &#123;&#123; 2|pow2 &#125;&#125;<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>100.1*100.1 = &#123;&#123; 100.1|pow2 &#125;&#125;<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>Example of global functions:<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;p&gt;</span>&#123;&#123; lower(&#39;I WILL WRITE THIS ALL IN LOWERCASE.&#39;) &#125;&#125;<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>&#123;&#123; upper(&#39;i will write this all in uppercase.&#39;) &#125;&#125;<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
 </pre></div>
 </body>
 </html>
