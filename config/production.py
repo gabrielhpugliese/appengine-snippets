@@ -83,8 +83,8 @@ config = {
 'captcha_private_key': "PUT_YOUR_RECAPCHA_PRIVATE_KEY_HERE",
 
 # Leave blank "google_analytics_domain" if you only want Analytics code
-'google_analytics_domain': "YOUR_PRIMARY_DOMAIN (e.g. google.com)",
-'google_analytics_code': "UA-XXXXX-X",
+'google_analytics_domain': "",
+'google_analytics_code': "UA-38631254-1",
 
 # add status codes and templates used to catch and display errors
 # if a status code is not listed here it will use the default app engine
