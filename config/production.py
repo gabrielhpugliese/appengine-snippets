@@ -3,9 +3,11 @@ This is the boilerplate default configuration file.
 Changes and additions to settings should be done in the config module
 located in the application root rather than this config.
 """
+import globals
+
 config = {
-          
-'environment': "production",
+
+'environment': "localhost",
 
 # webapp2 sessions
 'webapp2_extras.sessions': {'secret_key': '_PUT_KEY_HERE_YOUR_SECRET_KEY_'},
@@ -15,11 +17,19 @@ config = {
                          'cookie_name': 'session_name'},
 
 # jinja2 templates
-'webapp2_extras.jinja2': {'template_path': ['templates',
-                                            'boilerplate/templates',
-                                            'admin/templates'],
-                           'environment_args': {'extensions':
-                                                ['jinja2.ext.i18n']}},
+'webapp2_extras.jinja2': {
+    'template_path': ['templates', 'boilerplate/templates', 'admin/templates'],
+    'environment_args': {'extensions': ['jinja2.ext.i18n']},
+    'filters': {
+        'pow2': lambda x: float(x) ** 2
+    },
+    'globals': {
+        'preview': globals.preview,
+        'docs': globals.docs,
+        'upper': str.upper,
+        'lower': str.lower
+    }
+},
 
 # application name
 'app_name': "GAE Snippets",
